@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataService } from './services/data.service';
+import { LocationService } from './services/location.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { DataService } from './services/data.service';
 export class AppComponent {
   ELEMENT_DATA: any[] = []; 
   dataSource = new MatTableDataSource<any>(this.ELEMENT_DATA);
-  constructor(private dataService: DataService){
+  constructor(private dataService: DataService,private locationService: LocationService){
 
   }
 
@@ -22,6 +23,10 @@ export class AppComponent {
       .subscribe(data => {
         console.log('data ', data);
         this.dataSource.data = data as any[];
+      });
+      this.locationService.getLocations()
+      .then(data => {
+        console.log('data ', data);
       });
   }
 

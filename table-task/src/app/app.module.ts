@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DataService } from './services/data.service';
 import { MatTableModule } from '@angular/material/table';
+import { LocationService } from './services/location.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [DataService],
+  providers: [DataService,LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
